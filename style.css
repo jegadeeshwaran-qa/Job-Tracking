@@ -1,0 +1,67 @@
+:root{--bg:#f6f7f9;--card:#fff;--text:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#2563eb;--red:#dc2626;--green:#16a34a;--amber:#d97706}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);display:flex;min-height:100vh}
+.sidebar{width:210px;background:var(--card);border-right:1px solid var(--line);padding:20px 14px;position:sticky;top:0;height:100vh}
+.sidebar h1{font-size:1.2rem;margin:0 0 20px 8px;color:var(--accent)}
+nav{display:flex;flex-direction:column;gap:4px}
+nav button{text-align:left;background:none;border:0;padding:10px 12px;border-radius:8px;font-size:.95rem;cursor:pointer;color:var(--text)}
+nav button.active,nav button:hover{background:#eff4ff;color:var(--accent)}
+main{flex:1;padding:24px;max-width:1100px;min-width:0}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.top h2{margin:0}
+.note,.hint{color:var(--muted);font-size:.85rem}
+button{font:inherit;padding:8px 14px;border:1px solid var(--line);background:var(--card);border-radius:8px;cursor:pointer}
+button:hover{background:#f3f4f6}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+button.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+button.primary:hover{background:#1d4ed8}
+button.del{color:var(--red);border-color:#fecaca}
+.filebtn{display:inline-block;padding:8px 14px;border:1px solid var(--line);border-radius:8px;background:var(--card);cursor:pointer;margin:0 0 0 6px}
+label{display:block;font-size:.85rem;color:var(--muted);margin-bottom:10px}
+input,select,textarea{display:block;width:100%;margin-top:4px;padding:8px 10px;border:1px solid #d1d5db;border-radius:8px;font:inherit;color:var(--text);background:#fff}
+label.check{display:flex;gap:8px;align-items:center;color:var(--text)}
+label.check input{width:auto;margin:0}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:16px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}
+.stat b{display:block;font-size:1.7rem}
+.stat span{color:var(--muted);font-size:.85rem}
+.stat.bad b{color:var(--red)}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:14px}
+.panel h3{margin-top:0}
+.panel.danger{border-color:#fecaca}
+.row{display:flex;justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px solid var(--line);font-size:.9rem}
+.row:last-child{border:0}
+.toolbar{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin:16px 0 6px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:10px}
+.card.overdue{border-left:4px solid var(--red)}
+.card.due{border-left:4px solid var(--amber)}
+.card h4{margin:0 0 4px}
+.meta{color:var(--muted);font-size:.85rem;margin:4px 0 10px}
+.card .actions,.actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;margin-top:10px}
+.card .actions{justify-content:flex-start}
+.badge{display:inline-block;padding:2px 9px;border-radius:999px;font-size:.75rem;background:#e5e7eb;margin-right:4px}
+.badge.overdue{background:#fee2e2;color:var(--red)}
+.badge.due{background:#fef3c7;color:var(--amber)}
+.badge.upcoming,.badge.s-Offer{background:#dcfce7;color:var(--green)}
+.badge.s-Rejected,.badge.s-Withdrawn{background:#f3f4f6;color:var(--muted)}
+.badge.s-Interview{background:#dbeafe;color:var(--accent)}
+.empty{text-align:center;color:var(--muted);padding:30px 10px}
+dialog{border:0;border-radius:12px;padding:20px;width:min(720px,94vw);max-height:92vh;overflow:auto}
+dialog::backdrop{background:rgba(0,0,0,.4)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+.error{color:var(--red);font-size:.9rem;margin-bottom:8px;white-space:pre-line}
+.detail dl{display:grid;grid-template-columns:150px 1fr;gap:6px 10px;font-size:.9rem}
+.detail dt{color:var(--muted)}
+.detail dd{margin:0;overflow-wrap:anywhere}
+.hist{font-size:.85rem;padding-left:18px}
+@media(max-width:760px){
+  body{flex-direction:column;padding-bottom:60px}
+  .sidebar{position:fixed;bottom:0;top:auto;left:0;right:0;width:100%;height:auto;padding:6px;border:0;border-top:1px solid var(--line);z-index:5}
+  .sidebar h1{display:none}
+  nav{flex-direction:row;justify-content:space-around}
+  nav button{padding:8px;font-size:.8rem;text-align:center}
+  main{padding:14px}
+  .two-col,.grid{grid-template-columns:1fr}
+  .detail dl{grid-template-columns:1fr}
+}
